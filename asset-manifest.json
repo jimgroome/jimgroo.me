@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/jimgroo.me/static/css/main.eb684d0b.chunk.css",
-    "main.js": "/jimgroo.me/static/js/main.7dbccd25.chunk.js",
-    "main.js.map": "/jimgroo.me/static/js/main.7dbccd25.chunk.js.map",
-    "runtime~main.js": "/jimgroo.me/static/js/runtime~main.1995a655.js",
-    "runtime~main.js.map": "/jimgroo.me/static/js/runtime~main.1995a655.js.map",
-    "static/css/2.22a7d4ef.chunk.css": "/jimgroo.me/static/css/2.22a7d4ef.chunk.css",
-    "static/js/2.b9c8c241.chunk.js": "/jimgroo.me/static/js/2.b9c8c241.chunk.js",
-    "static/js/2.b9c8c241.chunk.js.map": "/jimgroo.me/static/js/2.b9c8c241.chunk.js.map",
-    "index.html": "/jimgroo.me/index.html",
-    "precache-manifest.c4bb4d77b94580db99082238429cd164.js": "/jimgroo.me/precache-manifest.c4bb4d77b94580db99082238429cd164.js",
-    "service-worker.js": "/jimgroo.me/service-worker.js",
-    "static/css/2.22a7d4ef.chunk.css.map": "/jimgroo.me/static/css/2.22a7d4ef.chunk.css.map",
-    "static/css/main.eb684d0b.chunk.css.map": "/jimgroo.me/static/css/main.eb684d0b.chunk.css.map"
+    "main.css": "/static/css/main.eb684d0b.chunk.css",
+    "main.js": "/static/js/main.61377954.chunk.js",
+    "main.js.map": "/static/js/main.61377954.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.22a7d4ef.chunk.css": "/static/css/2.22a7d4ef.chunk.css",
+    "static/js/2.b9c8c241.chunk.js": "/static/js/2.b9c8c241.chunk.js",
+    "static/js/2.b9c8c241.chunk.js.map": "/static/js/2.b9c8c241.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.4224df95a71cea469f502f1a7cc81518.js": "/precache-manifest.4224df95a71cea469f502f1a7cc81518.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.22a7d4ef.chunk.css.map": "/static/css/2.22a7d4ef.chunk.css.map",
+    "static/css/main.eb684d0b.chunk.css.map": "/static/css/main.eb684d0b.chunk.css.map"
   }
 }
