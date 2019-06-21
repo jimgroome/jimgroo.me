@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville");
+
+$blue: #04c;
+$pink: #9b009b;
+$yellow: #7c9b00;
+$green: #0d8e00;
+$white: #fafafa;
+
+.page-container {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 15px;
+  &.blue {
+    background: $white linear-gradient(lighten($blue, 50%), $white) no-repeat;
+    ::selection {
+      background-color: $blue;
+      color: $white;
+    }
+    a {
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+  &.pink {
+    background: $white linear-gradient(lighten($pink, 50%), $white) no-repeat;
+    ::selection {
+      background-color: $pink;
+      color: $white;
+    }
+    a {
+      &:hover {
+        color: $pink;
+      }
+    }
+  }
+  &.yellow {
+    background: $white linear-gradient(lighten($yellow, 50%), $white) no-repeat;
+    ::selection {
+      background-color: $yellow;
+      color: $white;
+    }
+    a {
+      &:hover {
+        color: $yellow;
+      }
+    }
+  }
+  &.green {
+    background: $white linear-gradient(lighten($green, 50%), $white) no-repeat;
+    ::selection {
+      background-color: $green;
+      color: $white;
+    }
+    a {
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+}
+
+h1,
+p {
+  font-family: "Libre Baskerville", serif;
+  display: inline-block;
+  position: relative;
+  margin: 0 0 20px;
+  padding: 15px 20px;
+  background: $white;
+  box-shadow: rgba(0, 0, 0, 0.9) 0 1px 4px, rgba(0, 0, 0, 0.05) 0 0 60px inset;
+}
+a {
+  transition: all 0.3s;
+}
