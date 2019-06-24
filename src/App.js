@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Nav, NavItem, NavLink } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import ReactGA from "react-ga";
 
 function App() {
@@ -22,25 +22,21 @@ function App() {
         <Row>
           <Col>
             <p>
-              Web developer. Music fan, reader, excessively tall, hot drinks
-              enthusiast.
+              Web developer in Kent. Music fan, reader, excessively tall, hot
+              drinks enthusiast.
             </p>
           </Col>
         </Row>
         <Row>
           <Col>
-            <Nav>
-              <NavItem>
-                <NavLink href='https://github.com/jimgroome' target='_blank'>
-                  <i className='fab fa-github' /> Github
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href='mailto:hello@jimgroo.me' target='_blank'>
-                  <i className='fas fa-at' /> Email
-                </NavLink>
-              </NavItem>
-            </Nav>
+            <p>
+              <a href='https://github.com/jimgroome' className='mr-3'>
+                <i className='fab fa-github' /> Github
+              </a>
+              <a href='mailto:hello@jimgroo.me'>
+                <i className='fas fa-at' /> Email
+              </a>
+            </p>
           </Col>
         </Row>
       </Container>
