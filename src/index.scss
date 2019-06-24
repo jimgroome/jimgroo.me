@@ -12,6 +12,7 @@ $white: #fafafa;
   padding-top: 15px;
   a {
     color: #212529;
+    text-decoration: none;
   }
   &.blue {
     background: $white linear-gradient(lighten($blue, 50%), $white) no-repeat;
@@ -77,13 +78,10 @@ p {
   display: inline-block;
   padding: 15px 16px;
 }
-// .nav {
-//   padding: 5px 0;
-//   display: inline-block;
-//   .nav-item {
-//     display: inline-block;
-//   }
-// }
 a {
   transition: all 0.3s;
+}
+.material-icons {
+  font-size: 1rem;
+  line-height: 1rem;
 }

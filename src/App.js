@@ -31,10 +31,10 @@ function App() {
           <Col>
             <p>
               <a href='https://github.com/jimgroome' className='mr-3'>
-                <i className='fab fa-github' /> Github
+                <i className='material-icons'>code</i> Github
               </a>
               <a href='mailto:hello@jimgroo.me'>
-                <i className='fas fa-at' /> Email
+                <i className='material-icons'>alternate_email</i> Email
               </a>
             </p>
           </Col>
