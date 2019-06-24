@@ -30,10 +30,14 @@ function App() {
         <Row>
           <Col>
             <p>
-              <a href='https://github.com/jimgroome' className='mr-3'>
+              <a
+                href='https://github.com/jimgroome'
+                target='_blank'
+                className='mr-3'
+              >
                 <i className='material-icons'>code</i> Github
               </a>
-              <a href='mailto:hello@jimgroo.me'>
+              <a href='mailto:hello@jimgroo.me' target='_blank'>
                 <i className='material-icons'>alternate_email</i> Email
               </a>
             </p>
