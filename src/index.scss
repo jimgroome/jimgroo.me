@@ -10,6 +10,9 @@ $white: #fafafa;
   width: 100vw;
   height: 100vh;
   padding-top: 15px;
+  a {
+    color: #212529;
+  }
   &.blue {
     background: $white linear-gradient(lighten($blue, 50%), $white) no-repeat;
     ::selection {
@@ -61,14 +64,25 @@ $white: #fafafa;
 }
 
 h1,
-p {
+p,
+.nav {
   font-family: "Libre Baskerville", serif;
-  display: inline-block;
   position: relative;
   margin: 0 0 20px;
-  padding: 15px 20px;
   background: $white;
   box-shadow: rgba(0, 0, 0, 0.9) 0 1px 4px, rgba(0, 0, 0, 0.05) 0 0 60px inset;
+}
+h1,
+p {
+  display: inline-block;
+  padding: 15px 16px;
+}
+.nav {
+  padding: 5px 0;
+  display: inline-block;
+  .nav-item {
+    display: inline-block;
+  }
 }
 a {
   transition: all 0.3s;
