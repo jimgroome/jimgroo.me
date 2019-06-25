@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactGA from 'react-ga';
-import Navigation from './components/Navigation';
 import SiteContent from './components/SiteContent';
 
 function App() {
