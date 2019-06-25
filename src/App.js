@@ -1,6 +1,7 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
 import ReactGA from "react-ga";
+import Navigation from "./components/Navigation";
+import SiteContent from "./components/SiteContent";
 
 function App() {
   ReactGA.initialize("UA-9828579-19");
@@ -13,37 +14,8 @@ function App() {
 
   return (
     <div className={containerClass}>
-      <Container fluid={true}>
-        <Row>
-          <Col>
-            <h1>Jim Groome</h1>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <p>
-              Web developer in Kent. Music fan, reader, excessively tall, hot
-              drinks enthusiast.
-            </p>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <p>
-              <a
-                href='https://github.com/jimgroome'
-                target='_blank'
-                className='mr-3'
-              >
-                <i className='material-icons'>code</i> Github
-              </a>
-              <a href='mailto:hello@jimgroo.me' target='_blank'>
-                <i className='material-icons'>alternate_email</i> Email
-              </a>
-            </p>
-          </Col>
-        </Row>
-      </Container>
+      <Navigation />
+      <SiteContent />
     </div>
   );
 }
