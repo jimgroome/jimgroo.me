@@ -3,7 +3,7 @@ import ReactGA from "react-ga";
 import SiteContent from "./components/SiteContent";
 
 function App() {
-  ReactGA.initialize("UA-9828579-19");
+  ReactGA.initialize("UA-142839175-1");
   ReactGA.pageview(window.location.pathname);
 
   const colours = ["blue", "green", "yellow", "pink"];
