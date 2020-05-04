@@ -12,6 +12,7 @@ $white: #fafafa;
   height: 100vh;
   position: relative;
   font-family: 'Libre Baskerville', serif;
+  padding: 1rem;
   &.blue {
     background: $white linear-gradient(lighten($blue, 50%), $white) no-repeat;
     ::selection {
@@ -71,12 +72,7 @@ $white: #fafafa;
   padding: 1rem;
   background: $white;
   box-shadow: rgba(0, 0, 0, 0.9) 0 1px 4px, rgba(0, 0, 0, 0.05) 0 0 60px inset;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 80%;
-  transform: translateY(-50%) translateX(-50%);
+  width: 90%;
 }
 a {
   color: #212529;
@@ -89,6 +85,6 @@ a {
 
 @include media-breakpoint-up(sm) {
   .site-content {
-    width: initial;
+    width: 40%;
   }
 }
