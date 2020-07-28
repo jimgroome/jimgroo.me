@@ -50,6 +50,11 @@ const SiteContent = ({ colour }) => {
                 Fierce Content
               </a>
             </li>
+            <li>
+              <a href="https://weddingphotos.jimgroo.me/" target="_blank" rel="noopener noreferrer">
+                Wedding photos
+              </a>
+            </li>
           </ul>
         </ModalBody>
         <ModalFooter>
