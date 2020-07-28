@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className={containerClass}>
-      <SiteContent />
+      <SiteContent colour={colour} />
     </div>
   );
 }
