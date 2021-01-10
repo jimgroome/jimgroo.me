@@ -1,21 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactGA from "react-ga";
-import { MDBBtn, MDBCol, MDBContainer, MDBRow } from "mdbreact";
+import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
 
 const App = () => {
-  const [moreOpen, setMoreOpen] = useState(false);
-
   ReactGA.initialize("UA-142839175-1");
   ReactGA.pageview(window.location.pathname);
   const colours = ["blue", "green", "yellow", "pink"];
 
   const colour = colours[Math.floor(Math.random() * colours.length)];
   const containerClass = "page-container " + colour;
-
-  const onMoreClick = (e) => {
-    e.preventDefault();
-    setMoreOpen(!moreOpen);
-  };
 
   return (
     <div className={containerClass}>
