@@ -1,5 +1,4 @@
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
-@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville");
 
 $blue: #04c;
 $pink: #9b009b;
@@ -11,8 +10,9 @@ $white: #fafafa;
   width: 100vw;
   height: 100vh;
   position: relative;
-  font-family: 'Libre Baskerville', serif;
-  padding: 1rem;
+  font-family: "Libre Baskerville", serif;
+  padding-top: 1rem;
+  // padding: 1rem;
   &.blue {
     background: $white linear-gradient(lighten($blue, 50%), $white) no-repeat;
     ::selection {
@@ -62,9 +62,6 @@ $white: #fafafa;
     }
   }
 }
-.navbar {
-  box-shadow: rgba(0, 0, 0, 0.5) 0 0 1rem;
-}
 .site-content-container {
   position: static;
 }
@@ -72,7 +69,7 @@ $white: #fafafa;
   padding: 1rem;
   background: $white;
   box-shadow: rgba(0, 0, 0, 0.9) 0 1px 4px, rgba(0, 0, 0, 0.05) 0 0 60px inset;
-  width: 90%;
+  // width: 90%;
 }
 a {
   color: #212529;
@@ -83,8 +80,8 @@ a {
   }
 }
 
-@include media-breakpoint-up(sm) {
-  .site-content {
-    width: 40%;
-  }
-}
+// @include media-breakpoint-up(sm) {
+//   .site-content {
+//     width: 45%;
+//   }
+// }
