@@ -5,7 +5,7 @@ export default function Home({ containerClass }) {
   return (
     <div className={containerClass}>
       <Head>
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="Description" content="Jim Groome is a full-stack developer based in Cranbrook, Kent." />
 
@@ -39,7 +39,7 @@ export default function Home({ containerClass }) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const colours = ["blue", "green", "yellow", "pink"];
 
   const colour = colours[Math.floor(Math.random() * colours.length)];
