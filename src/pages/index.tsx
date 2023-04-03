@@ -2,13 +2,13 @@ import Head from "next/head";
 import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
 
 type colour = "blue" | "green" | "pink" | "yellow";
-interface Props {
-  containerClass: colour;
-}
 
-export default function Home({ containerClass }: Props) {
+const Home = () => {
+  const colours: colour[] = ["blue", "green", "yellow", "pink"];
+  const colour = colours[Math.floor(Math.random() * colours.length)];
+
   return (
-    <div className={containerClass}>
+    <div className={`page-container ${colour}`}>
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -63,16 +63,6 @@ export default function Home({ containerClass }: Props) {
       </MDBContainer>
     </div>
   );
-}
-
-export const getServerSideProps = async () => {
-  const colours: colour[] = ["blue", "green", "yellow", "pink"];
-
-  const colour = colours[Math.floor(Math.random() * colours.length)];
-  const containerClass = "page-container " + colour;
-  return {
-    props: {
-      containerClass: containerClass,
-    },
-  };
 };
+
+export default Home;
