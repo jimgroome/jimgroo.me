@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
 
 $blue: #04c;
 $pink: #9b009b;
@@ -12,7 +12,6 @@ $white: #fafafa;
   position: relative;
   font-family: "Libre Baskerville", serif;
   padding-top: 1rem;
-  // padding: 1rem;
   &.blue {
     background: $white linear-gradient(lighten($blue, 50%), $white) no-repeat;
     ::selection {
@@ -69,7 +68,6 @@ $white: #fafafa;
   padding: 1rem;
   background: $white;
   box-shadow: rgba(0, 0, 0, 0.9) 0 1px 4px, rgba(0, 0, 0, 0.05) 0 0 60px inset;
-  // width: 90%;
 }
 a {
   color: #212529;
@@ -79,9 +77,3 @@ a {
     text-decoration: none;
   }
 }
-
-// @include media-breakpoint-up(sm) {
-//   .site-content {
-//     width: 45%;
-//   }
-// }
