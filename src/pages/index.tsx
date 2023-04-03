@@ -1,8 +1,9 @@
 import Head from "next/head";
 import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
 
+type colour = "blue" | "green" | "pink" | "yellow";
 interface Props {
-  containerClass: string;
+  containerClass: colour;
 }
 
 export default function Home({ containerClass }: Props) {
@@ -64,8 +65,8 @@ export default function Home({ containerClass }: Props) {
   );
 }
 
-export async function getStaticProps() {
-  const colours = ["blue", "green", "yellow", "pink"];
+export const getServerSideProps = async () => {
+  const colours: colour[] = ["blue", "green", "yellow", "pink"];
 
   const colour = colours[Math.floor(Math.random() * colours.length)];
   const containerClass = "page-container " + colour;
@@ -74,4 +75,4 @@ export async function getStaticProps() {
       containerClass: containerClass,
     },
   };
-}
+};
