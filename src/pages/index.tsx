@@ -1,7 +1,22 @@
 import Head from "next/head";
 import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
+import { siBluesky, siGithub, siMaildotru } from "simple-icons";
 
 type colour = "blue" | "green" | "pink" | "yellow";
+
+const SocialIcon = ({ path, title }: { path: string; title: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    viewBox="0 0 24 24"
+    role="img"
+    aria-label={title}
+    fill="currentColor"
+  >
+    <path d={path} />
+  </svg>
+);
 
 const Home = () => {
   const colours: colour[] = ["blue", "green", "yellow", "pink"];
@@ -46,17 +61,32 @@ const Home = () => {
               <h1 className="mb-4">Jim Groome</h1>
               <p>Full-stack developer based in Cranbrook, Kent.</p>
               <p>Loves React, TypeScript, Serverless, AWS, and hot drinks.</p>
-              <p className="mb-0">
+              <div className="mb-0 social-links">
                 <a
                   href="mailto:hello@jimgroo.me"
                   rel="noopener noreferrer"
                   target="_blank"
+                  aria-label="Email Jim"
                 >
-                  <span role="img" aria-label="Wave">
-                    👋
-                  </span>
+                  <SocialIcon path={siMaildotru.path} title="Email" />
                 </a>
-              </p>
+                <a
+                  href="https://bsky.app/profile/jimgroo.me"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label="Bluesky profile"
+                >
+                  <SocialIcon path={siBluesky.path} title="Bluesky" />
+                </a>
+                <a
+                  href="https://github.com/jimgroome"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label="GitHub profile"
+                >
+                  <SocialIcon path={siGithub.path} title="GitHub" />
+                </a>
+              </div>
             </div>
           </MDBCol>
         </MDBRow>
