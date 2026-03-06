@@ -1,8 +1,7 @@
 import Head from "next/head";
 import { FormEvent, useMemo, useState } from "react";
-import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
+import { getRandomColour, pageThemeClassNames } from "../lib/theme";
 
-type Colour = "blue" | "green" | "pink" | "yellow";
 type ErrorCorrectionLevel = "L" | "M" | "Q" | "H";
 
 type FormState = {
@@ -29,12 +28,13 @@ const initialState: FormState = {
   light: "#ffffff",
 };
 
+const inputBaseClassName =
+  "mt-2 w-full rounded border border-black/20 bg-white px-3 py-2 text-base text-[#212529] outline-none transition-shadow focus:border-black/60 focus:ring-2 focus:ring-black/20";
+
+const labelClassName = "text-sm";
+
 const QrPage = () => {
-  const colours: Colour[] = ["blue", "green", "yellow", "pink"];
-  const colour = useMemo(
-    () => colours[Math.floor(Math.random() * colours.length)],
-    []
-  );
+  const colour = useMemo(() => getRandomColour(), []);
   const [formState, setFormState] = useState<FormState>(initialState);
   const [qrUrl, setQrUrl] = useState<string>("");
   const darkColourInputValue = normaliseHexForColourInput(
@@ -60,7 +60,9 @@ const QrPage = () => {
   };
 
   return (
-    <div className={`page-container ${colour}`}>
+    <div
+      className={`min-h-screen w-full px-4 pb-8 pt-4 ${pageThemeClassNames[colour]} [&_a]:text-[#212529] [&_a]:no-underline [&_a]:transition-colors`}
+    >
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -69,155 +71,165 @@ const QrPage = () => {
         <title>QR code generator</title>
       </Head>
 
-      <MDBContainer fluid>
-        <MDBRow>
-          <MDBCol md="8" lg="6">
-            <div className="site-content">
-              <h1 className="mb-4">QR code generator</h1>
-              <form onSubmit={onSubmit} className="qr-form">
-                <div className="form-group">
-                  <label htmlFor="text">Text / URL</label>
-                  <input
-                    id="text"
-                    className="form-control"
-                    value={formState.text}
-                    onChange={(e) =>
-                      setFormState((prev) => ({ ...prev, text: e.target.value }))
-                    }
-                    placeholder="https://example.com"
-                    required
-                  />
-                </div>
-
-                <div className="form-row">
-                  <div className="form-group col-md-6">
-                    <label htmlFor="size">Size (px)</label>
-                    <input
-                      id="size"
-                      type="number"
-                      min={64}
-                      max={2048}
-                      className="form-control"
-                      value={formState.size}
-                      onChange={(e) =>
-                        setFormState((prev) => ({
-                          ...prev,
-                          size: Number(e.target.value),
-                        }))
-                      }
-                      required
-                    />
-                  </div>
-                  <div className="form-group col-md-6">
-                    <label htmlFor="margin">Margin</label>
-                    <input
-                      id="margin"
-                      type="number"
-                      min={0}
-                      max={20}
-                      className="form-control"
-                      value={formState.margin}
-                      onChange={(e) =>
-                        setFormState((prev) => ({
-                          ...prev,
-                          margin: Number(e.target.value),
-                        }))
-                      }
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="form-row">
-                  <div className="form-group col-md-4">
-                    <label htmlFor="errorCorrectionLevel">Error correction</label>
-                    <select
-                      id="errorCorrectionLevel"
-                      className="form-control"
-                      value={formState.errorCorrectionLevel}
-                      onChange={(e) =>
-                        setFormState((prev) => ({
-                          ...prev,
-                          errorCorrectionLevel:
-                            e.target.value as ErrorCorrectionLevel,
-                        }))
-                      }
-                    >
-                      <option value="L">L</option>
-                      <option value="M">M</option>
-                      <option value="Q">Q</option>
-                      <option value="H">H</option>
-                    </select>
-                  </div>
-                  <div className="form-group col-md-4">
-                    <label htmlFor="dark">Dark colour</label>
-                    <input
-                      id="dark"
-                      type="color"
-                      className="form-control"
-                      value={darkColourInputValue}
-                      onChange={(e) =>
-                        setFormState((prev) => ({ ...prev, dark: e.target.value }))
-                      }
-                    />
-                    <input
-                      id="darkHex"
-                      type="text"
-                      className="form-control mt-2"
-                      value={formState.dark}
-                      onChange={(e) =>
-                        setFormState((prev) => ({ ...prev, dark: e.target.value }))
-                      }
-                      placeholder="#000000"
-                    />
-                  </div>
-                  <div className="form-group col-md-4">
-                    <label htmlFor="light">Light colour</label>
-                    <input
-                      id="light"
-                      type="color"
-                      className="form-control"
-                      value={lightColourInputValue}
-                      onChange={(e) =>
-                        setFormState((prev) => ({ ...prev, light: e.target.value }))
-                      }
-                    />
-                    <input
-                      id="lightHex"
-                      type="text"
-                      className="form-control mt-2"
-                      value={formState.light}
-                      onChange={(e) =>
-                        setFormState((prev) => ({ ...prev, light: e.target.value }))
-                      }
-                      placeholder="#ffffff"
-                    />
-                  </div>
-                </div>
-
-                <button type="submit" className="btn btn-dark">
-                  Generate
-                </button>
-              </form>
-
-              {qrUrl ? (
-                <div className="qr-preview mt-4">
-                  <img src={qrUrl} alt="Generated QR code" />
-                  <div className="mt-3">
-                    <a
-                      href={qrUrl}
-                      download="qr-code.png"
-                      className="btn btn-outline-dark"
-                    >
-                      Download PNG
-                    </a>
-                  </div>
-                </div>
-              ) : null}
+      <div className="max-w-[860px]">
+        <div className="bg-page p-4 shadow-card">
+          <h1 className="mb-4 text-[2.5rem] leading-tight">QR code generator</h1>
+          <form onSubmit={onSubmit} className="space-y-4">
+            <div>
+              <label htmlFor="text" className={labelClassName}>
+                Text / URL
+              </label>
+              <input
+                id="text"
+                className={inputBaseClassName}
+                value={formState.text}
+                onChange={(e) =>
+                  setFormState((prev) => ({ ...prev, text: e.target.value }))
+                }
+                placeholder="https://example.com"
+                required
+              />
             </div>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
+
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <div>
+                <label htmlFor="size" className={labelClassName}>
+                  Size (px)
+                </label>
+                <input
+                  id="size"
+                  type="number"
+                  min={64}
+                  max={2048}
+                  className={inputBaseClassName}
+                  value={formState.size}
+                  onChange={(e) =>
+                    setFormState((prev) => ({
+                      ...prev,
+                      size: Number(e.target.value),
+                    }))
+                  }
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="margin" className={labelClassName}>
+                  Margin
+                </label>
+                <input
+                  id="margin"
+                  type="number"
+                  min={0}
+                  max={20}
+                  className={inputBaseClassName}
+                  value={formState.margin}
+                  onChange={(e) =>
+                    setFormState((prev) => ({
+                      ...prev,
+                      margin: Number(e.target.value),
+                    }))
+                  }
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+              <div>
+                <label htmlFor="errorCorrectionLevel" className={labelClassName}>
+                  Error correction
+                </label>
+                <select
+                  id="errorCorrectionLevel"
+                  className={inputBaseClassName}
+                  value={formState.errorCorrectionLevel}
+                  onChange={(e) =>
+                    setFormState((prev) => ({
+                      ...prev,
+                      errorCorrectionLevel: e.target.value as ErrorCorrectionLevel,
+                    }))
+                  }
+                >
+                  <option value="L">L</option>
+                  <option value="M">M</option>
+                  <option value="Q">Q</option>
+                  <option value="H">H</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="dark" className={labelClassName}>
+                  Dark colour
+                </label>
+                <input
+                  id="dark"
+                  type="color"
+                  className="mt-2 h-[42px] w-full cursor-pointer rounded border border-black/20 bg-white p-1"
+                  value={darkColourInputValue}
+                  onChange={(e) =>
+                    setFormState((prev) => ({ ...prev, dark: e.target.value }))
+                  }
+                />
+                <input
+                  id="darkHex"
+                  type="text"
+                  className={inputBaseClassName}
+                  value={formState.dark}
+                  onChange={(e) =>
+                    setFormState((prev) => ({ ...prev, dark: e.target.value }))
+                  }
+                  placeholder="#000000"
+                />
+              </div>
+              <div>
+                <label htmlFor="light" className={labelClassName}>
+                  Light colour
+                </label>
+                <input
+                  id="light"
+                  type="color"
+                  className="mt-2 h-[42px] w-full cursor-pointer rounded border border-black/20 bg-white p-1"
+                  value={lightColourInputValue}
+                  onChange={(e) =>
+                    setFormState((prev) => ({ ...prev, light: e.target.value }))
+                  }
+                />
+                <input
+                  id="lightHex"
+                  type="text"
+                  className={inputBaseClassName}
+                  value={formState.light}
+                  onChange={(e) =>
+                    setFormState((prev) => ({ ...prev, light: e.target.value }))
+                  }
+                  placeholder="#ffffff"
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="rounded border border-black bg-black px-4 py-2 text-sm text-white transition-colors hover:bg-transparent hover:text-black"
+            >
+              Generate
+            </button>
+          </form>
+
+          {qrUrl ? (
+            <div className="mt-4">
+              <img src={qrUrl} alt="Generated QR code" />
+              <div className="mt-3">
+                <a
+                  href={qrUrl}
+                  download="qr-code.png"
+                  className="inline-block rounded border border-black px-4 py-2 text-sm transition-colors hover:bg-black hover:text-white"
+                >
+                  Download PNG
+                </a>
+              </div>
+            </div>
+          ) : null}
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,15 +1,12 @@
-import "../styles/globals.scss";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import "bootstrap-css-only/css/bootstrap.min.css";
-import "mdbreact/dist/css/mdb.css";
+import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Bitter } from "next/font/google";
 
-const bitter = Bitter({ weight: "500", subsets: ["latin"] });
+const bitter = Bitter({ weight: "500", subsets: ["latin"], variable: "--font-bitter" });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={bitter.className}>
+    <main className={`${bitter.variable} font-sans`}>
       <Component {...pageProps} />
     </main>
   );

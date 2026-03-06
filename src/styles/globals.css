@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #__next {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    color: #212529;
+    background-color: #fafafa;
+  }
+}

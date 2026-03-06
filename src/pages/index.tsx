@@ -1,8 +1,6 @@
 import Head from "next/head";
-import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
 import { siBluesky, siGithub, siMaildotru } from "simple-icons";
-
-type colour = "blue" | "green" | "pink" | "yellow";
+import { getRandomColour, pageThemeClassNames } from "../lib/theme";
 
 const SocialIcon = ({ path, title }: { path: string; title: string }) => (
   <svg
@@ -19,11 +17,12 @@ const SocialIcon = ({ path, title }: { path: string; title: string }) => (
 );
 
 const Home = () => {
-  const colours: colour[] = ["blue", "green", "yellow", "pink"];
-  const colour = colours[Math.floor(Math.random() * colours.length)];
+  const colour = getRandomColour();
 
   return (
-    <div className={`page-container ${colour}`}>
+    <div
+      className={`min-h-screen w-full px-4 pb-8 pt-4 ${pageThemeClassNames[colour]} [&_a]:text-[#212529] [&_a]:no-underline [&_a]:transition-colors`}
+    >
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -54,43 +53,41 @@ const Home = () => {
         />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <MDBContainer fluid>
-        <MDBRow>
-          <MDBCol md="7" lg="5">
-            <div className="site-content">
-              <h1 className="mb-4">Jim Groome</h1>
-              <p>Full-stack developer based in Cranbrook, Kent.</p>
-              <p>Loves React, TypeScript, Serverless, AWS, and hot drinks.</p>
-              <div className="mb-0 social-links">
-                <a
-                  href="mailto:hello@jimgroo.me"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  aria-label="Email Jim"
-                >
-                  <SocialIcon path={siMaildotru.path} title="Email" />
-                </a>
-                <a
-                  href="https://bsky.app/profile/jimgroo.me"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  aria-label="Bluesky profile"
-                >
-                  <SocialIcon path={siBluesky.path} title="Bluesky" />
-                </a>
-                <a
-                  href="https://github.com/jimgroome"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  aria-label="GitHub profile"
-                >
-                  <SocialIcon path={siGithub.path} title="GitHub" />
-                </a>
-              </div>
-            </div>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
+      <div className="max-w-[720px]">
+        <div className="bg-page p-4 shadow-card">
+          <h1 className="mb-4 text-[2.5rem] leading-tight">Jim Groome</h1>
+          <p className="mb-4">Full-stack developer based in Cranbrook, Kent.</p>
+          <p className="mb-4">
+            Loves React, TypeScript, Serverless, AWS, and hot drinks.
+          </p>
+          <div className="mb-0 flex items-center gap-3">
+            <a
+              href="mailto:hello@jimgroo.me"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="Email Jim"
+            >
+              <SocialIcon path={siMaildotru.path} title="Email" />
+            </a>
+            <a
+              href="https://bsky.app/profile/jimgroo.me"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="Bluesky profile"
+            >
+              <SocialIcon path={siBluesky.path} title="Bluesky" />
+            </a>
+            <a
+              href="https://github.com/jimgroome"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="GitHub profile"
+            >
+              <SocialIcon path={siGithub.path} title="GitHub" />
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
