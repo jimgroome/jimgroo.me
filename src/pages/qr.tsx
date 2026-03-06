@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { FormEvent, useMemo, useState } from "react";
 import { getRandomColour, pageThemeClassNames } from "../lib/theme";
+import Image from "next/image";
 
 type ErrorCorrectionLevel = "L" | "M" | "Q" | "H";
 
@@ -73,7 +74,9 @@ const QrPage = () => {
 
       <div className="max-w-[860px]">
         <div className="bg-page p-4 shadow-card">
-          <h1 className="mb-4 text-[2.5rem] leading-tight">QR code generator</h1>
+          <h1 className="mb-4 text-[2.5rem] leading-tight">
+            QR code generator
+          </h1>
           <form onSubmit={onSubmit} className="space-y-4">
             <div>
               <label htmlFor="text" className={labelClassName}>
@@ -136,7 +139,10 @@ const QrPage = () => {
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               <div>
-                <label htmlFor="errorCorrectionLevel" className={labelClassName}>
+                <label
+                  htmlFor="errorCorrectionLevel"
+                  className={labelClassName}
+                >
                   Error correction
                 </label>
                 <select
@@ -146,7 +152,8 @@ const QrPage = () => {
                   onChange={(e) =>
                     setFormState((prev) => ({
                       ...prev,
-                      errorCorrectionLevel: e.target.value as ErrorCorrectionLevel,
+                      errorCorrectionLevel: e.target
+                        .value as ErrorCorrectionLevel,
                     }))
                   }
                 >
@@ -216,7 +223,13 @@ const QrPage = () => {
 
           {qrUrl ? (
             <div className="mt-4">
-              <img src={qrUrl} alt="Generated QR code" />
+              <Image
+                src={qrUrl}
+                alt="Generated QR code"
+                width={320}
+                height={320}
+                className="rounded border border-black/20"
+              />
               <div className="mt-3">
                 <a
                   href={qrUrl}
