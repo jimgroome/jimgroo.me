@@ -1,6 +1,7 @@
 import Head from "next/head";
+import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { siBluesky, siGithub, siMaildotru } from "simple-icons";
-import { getRandomColour, pageThemeClassNames } from "../lib/theme";
+import { Colour, getRandomColour, pageThemeClassNames } from "../lib/theme";
 
 const SocialIcon = ({ path, title }: { path: string; title: string }) => (
   <svg
@@ -16,8 +17,11 @@ const SocialIcon = ({ path, title }: { path: string; title: string }) => (
   </svg>
 );
 
-const Home = () => {
-  const colour = getRandomColour();
+type HomeProps = {
+  colour: Colour;
+};
+
+const Home = ({ colour }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
 
   return (
     <div
@@ -91,5 +95,11 @@ const Home = () => {
     </div>
   );
 };
+
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => ({
+  props: {
+    colour: getRandomColour(),
+  },
+});
 
 export default Home;

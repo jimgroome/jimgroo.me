@@ -1,6 +1,7 @@
 import Head from "next/head";
-import { FormEvent, useMemo, useState } from "react";
-import { getRandomColour, pageThemeClassNames } from "../lib/theme";
+import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { FormEvent, useState } from "react";
+import { Colour, getRandomColour, pageThemeClassNames } from "../lib/theme";
 import Image from "next/image";
 
 type ErrorCorrectionLevel = "L" | "M" | "Q" | "H";
@@ -34,8 +35,13 @@ const inputBaseClassName =
 
 const labelClassName = "text-sm";
 
-const QrPage = () => {
-  const colour = useMemo(() => getRandomColour(), []);
+type QrPageProps = {
+  colour: Colour;
+};
+
+const QrPage = ({
+  colour,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const [formState, setFormState] = useState<FormState>(initialState);
   const [qrUrl, setQrUrl] = useState<string>("");
   const darkColourInputValue = normaliseHexForColourInput(
@@ -246,5 +252,11 @@ const QrPage = () => {
     </div>
   );
 };
+
+export const getServerSideProps: GetServerSideProps<QrPageProps> = async () => ({
+  props: {
+    colour: getRandomColour(),
+  },
+});
 
 export default QrPage;
