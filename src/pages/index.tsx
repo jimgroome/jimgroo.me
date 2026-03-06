@@ -27,8 +27,8 @@ const Home = () => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
-          name="Description"
-          content="Jim Groome is a full-stack developer based in Cranbrook, Kent."
+          name="description"
+          content="Full-stack developer based in Cranbrook, Kent."
         />
 
         <meta name="theme-color" content="#ffffff" />
