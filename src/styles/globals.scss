@@ -5,10 +5,11 @@ $green: #0d8e00;
 $white: #fafafa;
 
 .page-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   position: relative;
   padding-top: 1rem;
+  padding-bottom: 2rem;
   &.blue {
     background: $white linear-gradient(lighten($blue, 50%), $white) no-repeat;
     ::selection {
